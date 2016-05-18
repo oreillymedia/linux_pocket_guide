@@ -6,6 +6,6 @@ This is the set of example files that accompanies Linux Pocket guide by Daniel J
 Click the "Clone or download" button, then the "Download Zip" link, to
 download the example files.
 
-Visit the book's [O'Reilly catalog page](http://shop.oreilly.com/product/0636920040927.do) and the (author's web site)[http://linuxpocketguide.com].
+Visit the book's [O'Reilly catalog page](http://shop.oreilly.com/product/0636920040927.do) and the [author's web site](http://linuxpocketguide.com).
 
 See an error? Report it [here](http://oreilly.com/catalog/errata.csp?isbn=0636920040927), or simply fork and send us a pull request.
