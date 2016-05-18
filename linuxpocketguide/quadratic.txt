@@ -1,0 +1,8 @@
+scale=2
+define quadform ( a, b, c ) {
+ root1 = (-b + sqrt(b^2 - 4*a*c)) / (2*a)
+ root2 = (-b - sqrt(b^2 - 4*a*c)) / (2*a)
+ print root1, "  ", root2, "\n"
+}
+
+quadform(1, 7, 12)

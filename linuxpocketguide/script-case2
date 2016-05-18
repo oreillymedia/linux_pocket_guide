@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo -n "Enter a letter: "
+read letter
+
+case $letter in
+    X)
+	echo "$letter is an X"
+	;;
+    [aeiou])
+	echo "$letter is a vowel"
+	;;
+    [0-9])
+	echo "$letter is a digit, silly"
+	;;
+    *)
+	echo "The letter '$letter' is not supported"
+	;;
+esac

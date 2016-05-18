@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "My name is $1 and I come from $2"

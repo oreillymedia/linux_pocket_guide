@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo -n "What would you like to do (eat, sleep)? "
+read answer
+case "$answer" in
+  eat)
+    echo "OK, have a hamburger."
+    ;;
+  sleep)
+    echo "Good night then."
+    ;;
+  *)
+    echo "I'm not sure what you want to do."
+    echo "I guess I'll see you tomorrow."
+    ;;
+esac

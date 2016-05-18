@@ -1,0 +1,2 @@
+This file's name begins with a dot, so it does not show up when you
+type "ls" (unless you provide the -a option).
