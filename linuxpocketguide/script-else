@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ `whoami` = "root" ]
+then
+ echo "You are the superuser"
+else
+ echo "You are a mere mortal"
+fi

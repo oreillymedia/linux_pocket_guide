@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for name in Tom Jane Harry
+do
+ echo "$name is my friend"
+done

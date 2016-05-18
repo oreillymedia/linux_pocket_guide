@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]
+then
+    echo "$0 error: you must supply two arguments"
+    exit 1
+else
+  echo "My name is $1 and I come from $2"
+fi
+exit 0

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for name in Tom Jane Harry
+do
+ echo $name
+ echo "  again"
+done
+echo "all done"

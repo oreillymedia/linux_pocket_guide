@@ -1,0 +1,134 @@
+#!/bin/bash
+########################################################################
+#
+# A script to download a fresh copy of the examples for the
+# Linux Pocket Guide, 3rd Edition, by Daniel J. Barrett.
+# Usage:
+#
+#  reset-lpg
+########################################################################
+
+# Name of his script
+PROG=`basename $0`
+
+# Name of the tar file to retrieve
+TARFILE=LPG-stuff.tar.gz
+
+# Location of the tar file on the web
+REMOTEFILE="http://linuxpocketguide.com/$TARFILE"
+
+# Location of the tar file on the local computer
+LOCALFILE="/tmp/$TARFILE"
+
+# Location of the extracted files on the computer
+DESTDIR=${1:-$HOME}
+LOCALDIR="$DESTDIR/linuxpocketguide"
+
+# Prompting
+BAR='======================================================================'
+
+########################################################################
+# Ask permission first
+########################################################################
+
+action="create"
+if [ -d "$LOCALDIR" ]
+then
+    action="refresh"
+fi
+
+echo
+echo "$BAR"
+echo "$PROG: This program will $action the directory"
+echo
+echo "    $LOCALDIR"
+
+if [ "$action" == "refresh" ]
+then
+    echo
+    echo "All example files will be restored to their original contents."
+    echo "Any other files you've added will be left alone."
+fi
+
+echo "$BAR"
+echo
+echo -n "Is that OK? [Enter 'y' to continue, anything else to exit]: "
+read ans
+case "$ans" in
+  [Yy]*)
+	;;
+  *)
+	echo "$PROG: Exiting!"
+	exit 1
+	;;
+esac
+echo
+
+########################################################################
+# Make sure the destination directory exists
+########################################################################
+
+if [ ! -d "$DESTDIR" ]
+then
+    echo "$PROG: Creating directory '$DESTDIR'"
+    mkdir "$DESTDIR"
+    if [ $? -ne 0 ]
+    then
+	echo "$PROG: Could not create directory '$DESTDIR' - Exiting!"
+	exit 1
+    fi
+fi
+
+########################################################################
+# Download the tarfile from the web if it doesn't already exist.
+########################################################################
+
+if [ -f "$LOCALFILE" ]
+then
+    echo "$PROG: Removing old file '$LOCALFILE'"
+    /bin/rm -f "$LOCALFILE"
+fi
+
+echo "$PROG: Retrieving file '$TARFILE' from the web"
+cd "$DESTDIR" && wget --quiet -O "$LOCALFILE" "$REMOTEFILE"
+result=$?
+if [ $result -ne 0 ]
+then
+  echo "$PROG: ERROR: Retrieval failed (code $result) - exiting"
+  exit $result
+fi
+
+########################################################################
+# Remove the old directory if it exists
+########################################################################
+#
+#if [ -d "$LOCALDIR" ]
+#then
+#  echo "$PROG: Removing old directory '$LOCALDIR'"
+#  /bin/rm -rf "$LOCALDIR"
+#  result=$?
+#  if [ $result -ne 0 ]
+#  then
+#	echo "$PROG: ERROR: Deletion failed (code $result) - exiting"
+#	exit $result
+#  fi
+#fi
+
+########################################################################
+# Extract the files
+########################################################################
+
+echo "$PROG: Extracting examples into '$LOCALDIR'"
+cd "$DESTDIR" && tar xf "$LOCALFILE"
+result=$?
+if [ $result -ne 0 ]
+then
+  echo "$PROG: ERROR: Extraction failed (code $result) - exiting"
+  exit $result
+fi
+
+########################################################################
+# Say goodbye
+########################################################################
+
+echo "$PROG: All done!"
