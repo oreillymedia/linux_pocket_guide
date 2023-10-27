@@ -1,4 +1,4 @@
-Linux Pocket Guide
+Linux Pocket Guide, 3rd Edition
 ==========
 
 This is the set of example files that accompanies *Linux Pocket Guide, 3rd Edition* by [Daniel J. Barrett](https://danieljbarrett.com/) (ISBN 9781491927571). By downloading these files, you can run most commands in the 3rd edition exactly as they are written. Just make sure you're in the "linuxpocketguide" subdirectory when you run them (`cd ~/linuxpocketguide` by default).
