@@ -1,7 +1,7 @@
 Linux Pocket Guide, 3rd Edition
 ==========
 
-**NOTE:** If you're looking for the *4th edition* of the book, switch to the [4th edition branch](https://github.com/oreillymedia/linux_pocket_guide/tree/4th_edition).
+**NOTE: If you're looking for the *4th edition* of the book, switch to the [4th edition branch](https://github.com/oreillymedia/linux_pocket_guide/tree/4th_edition).**
 
 This set of example files accompanies *Linux Pocket Guide, 3rd Edition* by [Daniel J. Barrett](https://danieljbarrett.com/) (ISBN 9781491927571).
 
